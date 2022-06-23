@@ -242,7 +242,7 @@ function HomeScreen({ navigation }) {
                   <TouchableOpacity
                     style={{
                       width: 334,
-                      height: 62,
+                      height: 50,
                       justifyContent: "center",
                       alignItems: "center",
                       backgroundColor: "#E84E1C",
@@ -257,7 +257,7 @@ function HomeScreen({ navigation }) {
                     <Text
                       style={{
                         color: "#E5E5E5",
-                        fontSize: 30
+                        fontSize: 20
                       }}
                     >
                       Login
@@ -327,7 +327,7 @@ function HomeScreen({ navigation }) {
             <TouchableOpacity
               style={{
                 width: 334,
-                height: 62,
+                height: 50,
                 justifyContent: "center",
                 alignItems: "center",
                 backgroundColor: "#E84E1C",
@@ -339,7 +339,7 @@ function HomeScreen({ navigation }) {
               <Text
                 style={{
                   color: "#E5E5E5",
-                  fontSize: 30
+                  fontSize: 20
                 }}
               >
                 Sign in
@@ -348,7 +348,7 @@ function HomeScreen({ navigation }) {
             <TouchableOpacity
               style={{
                 width: 334,
-                height: 62,
+                height: 50,
                 justifyContent: "center",
                 alignItems: "center",
                 backgroundColor: "#1D1D1B",
@@ -359,7 +359,7 @@ function HomeScreen({ navigation }) {
                 navigation.navigate("SignUpScreen");
               }}
             >
-              <Text style={{ color: "#E5E5E5", fontSize: 30 }}>Sign up</Text>
+              <Text style={{ color: "#E5E5E5", fontSize: 20 }}>Sign up</Text>
             </TouchableOpacity>
           </View>
         </View>
@@ -591,7 +591,7 @@ function SignUpScreen({ navigation }) {
           <TouchableOpacity
             style={{
               width: 334,
-              height: 62,
+              height: 50,
               justifyContent: "center",
               alignItems: "center",
               backgroundColor: "#E84E1C",
@@ -602,7 +602,7 @@ function SignUpScreen({ navigation }) {
               navigation.navigate("VerificationScreen");
             }}
           >
-            <Text style={{ color: "#E5E5E5", fontSize: 30 }}>Sign up</Text>
+            <Text style={{ color: "#E5E5E5", fontSize: 20 }}>Sign up</Text>
           </TouchableOpacity>
         </View>
       </View>

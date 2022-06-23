@@ -23,6 +23,7 @@ import AccountTab from "../tabs/accountTab";
 import CardsTab from "../tabs/cardsTab";
 import HelpTab from "../tabs/helpTab";
 import StatisticsTab from "../tabs/statisticsTab";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 //import EmergencyScreen from "../sub/emergency";
 //import AddressScreen from "../sub/address";
 //import TravelHistoric from "../sub/travel-historic";
@@ -61,17 +62,28 @@ class Home extends Component {
         <Tab.Navigator tabBarOptions={tabBarOptions}>
           <Tab.Screen
             name="accountTab"
+            color={"#E84E1C"}
             component={AccountTab}
             options={{
-              tabBarIcon: ({ color }) => (
-                <Image
-                  source={require("../../../../assets/images/Tabs/Account.png")}
-                />
-              ),
+              tabBarIcon: ({ color, focused }) =>
+                focused ? (
+                  <Image
+                    style={{ height: 15, width: 15 }}
+                    source={require("../../../../assets/images/Tabs/user1.png")}
+                    size={25}
+                  />
+                ) : (
+                  <Image
+                    style={{ height: 15, width: 15 }}
+                    source={require("../../../../assets/images/Tabs/user.png")}
+                    size={25}
+                  />
+                ),
               tabBarLabel: "Home",
+              color: "#F6F7FB",
               headerShown: null,
               headerStyle: {
-                backgroundColor: "#F6F7FB"
+                backgroundColor: "#E84E1C"
               }
             }}
           />
@@ -79,11 +91,20 @@ class Home extends Component {
             name="statisticsTab"
             component={StatisticsTab}
             options={{
-              tabBarIcon: ({ color }) => (
-                <Image
-                  source={require("../../../../assets/images/Tabs/Stat.png")}
-                />
-              ),
+              tabBarIcon: ({ color, focused }) =>
+                focused ? (
+                  <Image
+                    style={{ height: 15, width: 15 }}
+                    source={require("../../../../assets/images/Tabs/bar-chart1.png")}
+                    size={25}
+                  />
+                ) : (
+                  <Image
+                    style={{ height: 15, width: 15 }}
+                    source={require("../../../../assets/images/Tabs/bar-chart.png")}
+                    size={25}
+                  />
+                ),
               tabBarLabel: "Statistics",
               headerShown: null,
               headerStyle: {
@@ -95,11 +116,20 @@ class Home extends Component {
             name="cardsTab"
             component={CardsTab}
             options={{
-              tabBarIcon: ({ color }) => (
-                <Image
-                  source={require("../../../../assets/images/Tabs/Cards.png")}
-                />
-              ),
+              tabBarIcon: ({ color, focused }) =>
+                focused ? (
+                  <Image
+                    style={{ height: 15, width: 15 }}
+                    source={require("../../../../assets/images/Tabs/credit-card1.png")}
+                    size={25}
+                  />
+                ) : (
+                  <Image
+                    style={{ height: 15, width: 15 }}
+                    source={require("../../../../assets/images/Tabs/credit-card.png")}
+                    size={25}
+                  />
+                ),
               tabBarLabel: "Cards",
               headerShown: null,
               headerStyle: {
@@ -111,11 +141,20 @@ class Home extends Component {
             name="helpTab"
             component={HelpTab}
             options={{
-              tabBarIcon: ({ color }) => (
-                <Image
-                  source={require("../../../../assets/images/Tabs/help.png")}
-                />
-              ),
+              tabBarIcon: ({ color, focused }) =>
+                focused ? (
+                  <Image
+                    style={{ height: 15, width: 15 }}
+                    source={require("../../../../assets/images/Tabs/support1.png")}
+                    size={25}
+                  />
+                ) : (
+                  <Image
+                    style={{ height: 15, width: 15 }}
+                    source={require("../../../../assets/images/Tabs/support.png")}
+                    size={25}
+                  />
+                ),
               tabBarLabel: "Help",
               headerShown: null,
               headerStyle: {

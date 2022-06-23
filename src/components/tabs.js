@@ -86,7 +86,7 @@ class Tabs extends Component {
                 justifyContent: "space-between"
               }}
             >
-              <TouchableOpacity
+              <Pressable
                 onPress={() => {
                   this.setModalVisible1(false);
                 }}
@@ -95,7 +95,7 @@ class Tabs extends Component {
                   style={{ marginRight: 10 }}
                   source={require("../../assets/images/SignUpPage/BackArrow.png")}
                 />
-              </TouchableOpacity>
+              </Pressable>
               <Text style={{ fontWeight: "bold", fontSize: 20 }}>
                 Mon Profil
               </Text>
@@ -181,7 +181,7 @@ class Tabs extends Component {
 
   render() {
     return (
-      <View style={{ flex: 1 }}>
+      <View>
         <TouchableOpacity
           onPress={() => {
             this.setModalVisible(true);
@@ -240,7 +240,7 @@ class Tabs extends Component {
                       source={require("../../assets/images/Drawer/Ellipse.png")}
                     />
                     <View style={{ marginLeft: 10 }}>
-                      <TouchableOpacity
+                      <Pressable
                         onPress={() => {
                           this.setModalVisible(false);
                           this.setModalVisible1(true);
@@ -252,7 +252,7 @@ class Tabs extends Component {
                         <Text style={{ color: "white" }}>
                           +225 07 55 12 13 14
                         </Text>
-                      </TouchableOpacity>
+                      </Pressable>
                     </View>
                   </ImageBackground>
                 </View>

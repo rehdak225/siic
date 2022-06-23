@@ -61,7 +61,7 @@ class Cards extends Component {
           style={{
             flexDirection: "row",
             marginLeft: 10,
-            justifyContent: "flex-start",
+            justifyContent: "space-between",
             alignItems: "center",
             marginRight: "45%"
           }}
@@ -161,10 +161,7 @@ class Cards extends Component {
               borderRadius: 8,
               marginTop: 10
             }}
-            onPress={() => {
-              this.setModalVisible1(false);
-              navigation.navigate("Home");
-            }}
+            onPress={() => {}}
           >
             <Text
               style={{

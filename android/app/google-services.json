@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "393552600316",
+    "project_id": "nkl-go",
+    "storage_bucket": "nkl-go.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:393552600316:android:8732d6a60f1b16fececb79",
+        "android_client_info": {
+          "package_name": "com.xearth.nklgo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "393552600316-eo8bkb04qqk6vdb8sopvh685s236j8rt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCQrmQ50-xL0vnRcnsOnwsVmJ-0Q6jX7AQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "393552600316-eo8bkb04qqk6vdb8sopvh685s236j8rt.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:393552600316:android:f88b53da7a3ae365cecb79",
+        "android_client_info": {
+          "package_name": "xearth.nklgo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "393552600316-eo8bkb04qqk6vdb8sopvh685s236j8rt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCQrmQ50-xL0vnRcnsOnwsVmJ-0Q6jX7AQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "393552600316-eo8bkb04qqk6vdb8sopvh685s236j8rt.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -44,8 +44,9 @@ import MyCarousel from "../element/carousel";
 import key from "../../../../assets/key.png";
 import dist from "../../../../assets/dist.png";
 import Tabs from "../../tabs";
-import tabs from "../../tabs";
 import { SafeAreaView } from "react-native-safe-area-context";
+import BankTransfer from "../svg/bank-transfert";
+import AskMoney from "../svg/ask-money";
 
 const height = Math.round(Dimensions.get("window").height);
 const width = Math.round(Dimensions.get("window").width);
@@ -170,9 +171,15 @@ class Account extends Component {
             <View style={{ paddingLeft: 15 }}>
               <View style={{ alignItems: "center", justifyContent: "center" }}>
                 <Image
-                  style={{ marginTop: 15, marginRight: 10 }}
-                  source={require("../../../../assets/images/AccountPage/bank-transfert.png")}
+                  style={{
+                    marginTop: 20,
+                    marginRight: 10,
+                    width: 30,
+                    height: 30
+                  }}
+                  source={require("../../../../assets/images/AccountPage/bank-transfer.png")}
                 />
+                <Text style={{ fontSize: 10 }}>Bank Transfer</Text>
               </View>
 
               <View>
@@ -239,7 +246,7 @@ class Account extends Component {
               <TouchableOpacity
                 style={{
                   width: 334,
-                  height: 62,
+                  height: 50,
                   justifyContent: "center",
                   alignItems: "center",
                   backgroundColor: "#E84E1C",
@@ -248,13 +255,12 @@ class Account extends Component {
                 }}
                 onPress={() => {
                   this.setModalVisible1(false);
-                  navigation.navigate("Home");
                 }}
               >
                 <Text
                   style={{
                     color: "#E5E5E5",
-                    fontSize: 30
+                    fontSize: 20
                   }}
                 >
                   Validate
@@ -312,9 +318,15 @@ class Account extends Component {
             <View style={{ paddingLeft: 15 }}>
               <View style={{ alignItems: "center", justifyContent: "center" }}>
                 <Image
-                  style={{ marginTop: 15, marginRight: 10 }}
-                  source={require("../../../../assets/images/AccountPage/ask-money.png")}
+                  style={{
+                    marginTop: 20,
+                    marginRight: 10,
+                    width: 30,
+                    height: 30
+                  }}
+                  source={require("../../../../assets/images/AccountPage/wallet.png")}
                 />
+                <Text style={{ fontSize: 10 }}>Ask Money</Text>
               </View>
 
               <View>
@@ -381,7 +393,7 @@ class Account extends Component {
               <TouchableOpacity
                 style={{
                   width: 334,
-                  height: 62,
+                  height: 50,
                   justifyContent: "center",
                   alignItems: "center",
                   backgroundColor: "#E84E1C",
@@ -390,13 +402,12 @@ class Account extends Component {
                 }}
                 onPress={() => {
                   this.setModalVisible2(false);
-                  navigation.navigate("Home");
                 }}
               >
                 <Text
                   style={{
                     color: "#E5E5E5",
-                    fontSize: 30
+                    fontSize: 20
                   }}
                 >
                   Send request
@@ -529,7 +540,7 @@ class Account extends Component {
               <TouchableOpacity
                 style={{
                   width: 334,
-                  height: 62,
+                  height: 50,
                   justifyContent: "center",
                   alignItems: "center",
                   backgroundColor: "#E84E1C",
@@ -538,13 +549,12 @@ class Account extends Component {
                 }}
                 onPress={() => {
                   this.setModalVisible3(false);
-                  S;
                 }}
               >
                 <Text
                   style={{
                     color: "#E5E5E5",
-                    fontSize: 30
+                    fontSize: 20
                   }}
                 >
                   Block the card
@@ -657,16 +667,12 @@ class Account extends Component {
             style={{
               flexDirection: "row",
               marginLeft: 10,
-              justifyContent: "space-around",
+              justifyContent: "space-between",
               alignItems: "center"
             }}
           >
             <Tabs />
-            <Text
-              style={{ fontSize: 20, fontWeight: "bold", marginRight: "45%" }}
-            >
-              SIIC
-            </Text>
+            <Text style={{ fontSize: 20, fontWeight: "bold" }}>SIIC</Text>
             <TouchableOpacity
               onPress={() => {
                 this.setModalVisible4(true);
@@ -697,42 +703,72 @@ class Account extends Component {
               }}
             >
               <TouchableOpacity
+                style={{ alignItems: "center" }}
                 onPress={() => {
                   this.setModalVisible1(true);
                 }}
               >
                 <Image
-                  style={{ marginTop: 15, marginRight: 10 }}
-                  source={require("../../../../assets/images/AccountPage/bank-transfert.png")}
+                  style={{
+                    marginTop: 20,
+                    marginRight: 10,
+                    width: 30,
+                    height: 30
+                  }}
+                  source={require("../../../../assets/images/AccountPage/bank-transfer.png")}
                 />
+                <Text style={{ fontSize: 10 }}>Bank Transfer</Text>
               </TouchableOpacity>
 
               <TouchableOpacity
+                style={{ alignItems: "center" }}
                 onPress={() => {
                   this.setModalVisible2(true);
                 }}
               >
                 <Image
-                  style={{ marginTop: 25, marginRight: 10 }}
-                  source={require("../../../../assets/images/AccountPage/ask-money.png")}
+                  style={{
+                    marginTop: 20,
+                    marginRight: 10,
+                    width: 30,
+                    height: 30
+                  }}
+                  source={require("../../../../assets/images/AccountPage/wallet.png")}
                 />
+                <Text style={{ fontSize: 10 }}>Ask Money</Text>
               </TouchableOpacity>
 
-              <TouchableOpacity onPress={() => {}}>
+              <TouchableOpacity
+                style={{ alignItems: "center" }}
+                onPress={() => {}}
+              >
                 <Image
-                  style={{ marginTop: 20, marginRight: 10 }}
-                  source={require("../../../../assets/images/AccountPage/reload.png")}
+                  style={{
+                    marginTop: 20,
+                    marginRight: 10,
+                    width: 30,
+                    height: 30
+                  }}
+                  source={require("../../../../assets/images/AccountPage/credit-card.png")}
                 />
+                <Text style={{ fontSize: 10 }}>Reload</Text>
               </TouchableOpacity>
               <TouchableOpacity
+                style={{ alignItems: "center" }}
                 onPress={() => {
                   this.setModalVisible3(true);
                 }}
               >
                 <Image
-                  style={{ marginTop: 15, marginRight: 10 }}
-                  source={require("../../../../assets/images/AccountPage/block.png")}
+                  style={{
+                    marginTop: 20,
+                    marginRight: 10,
+                    width: 30,
+                    height: 30
+                  }}
+                  source={require("../../../../assets/images/AccountPage/padlock.png")}
                 />
+                <Text style={{ fontSize: 10 }}>Block</Text>
               </TouchableOpacity>
             </View>
           </View>
@@ -756,6 +792,7 @@ class Account extends Component {
             <View style={{ flexDirection: "row", marginBottom: 10 }}>
               <View style={{ marginRight: 10 }}>
                 <Image
+                  style={{ width: 30, height: 30 }}
                   source={require("../../../../assets/images/AccountPage/warning.png")}
                 />
               </View>
@@ -771,7 +808,8 @@ class Account extends Component {
             <View style={{ flexDirection: "row", marginBottom: 10 }}>
               <View style={{ marginRight: 10 }}>
                 <Image
-                  source={require("../../../../assets/images/AccountPage/information.png")}
+                  style={{ width: 30, height: 30 }}
+                  source={require("../../../../assets/images/AccountPage/documents.png")}
                 />
               </View>
               <View>
