@@ -87,6 +87,7 @@ class Tabs extends Component {
               }}
             >
               <Pressable
+                style={{ marginTop: 10, marginLeft: 15 }}
                 onPress={() => {
                   this.setModalVisible1(false);
                 }}

@@ -47,6 +47,11 @@ import Tabs from "../../tabs";
 import { SafeAreaView } from "react-native-safe-area-context";
 import BankTransfer from "../svg/bank-transfert";
 import AskMoney from "../svg/ask-money";
+import Card1 from "../element/modalCard1";
+import BTransferModal from "../element/bankTransfertModal";
+import AskMoneyModal from "../element/askMoneyModal";
+import BlockModal from "../element/blockModal";
+import CardModal from "../element/cardModal";
 
 const height = Math.round(Dimensions.get("window").height);
 const width = Math.round(Dimensions.get("window").width);
@@ -74,7 +79,9 @@ class Account extends Component {
     modalVisible1: false,
     modalVisible2: false,
     modalVisible3: false,
-    modalVisible4: false
+    modalVisible4: false,
+    cardModalVisible: false,
+    amountCard: 0
   };
 
   setModalVisible1 = (visible) => {
@@ -92,13 +99,15 @@ class Account extends Component {
   setModalVisible4 = (visible) => {
     this.setState({ modalVisible4: visible });
   };
+  setCardModalVisible = (visible) => {
+    this.setState({ cardModalVisible: visible });
+  };
   _renderItem = ({ item, index }) => {
     return (
       <View
         style={{
           justifyContent: "center",
-          alignItems: "center",
-          borderRadius: 10
+          alignItems: "center"
         }}
       >
         <ImageBackground
@@ -106,481 +115,50 @@ class Account extends Component {
           resizeMode="cover"
           style={{
             width: "100%",
-            height: 200,
-            borderRadius: 10
+            height: 200
           }}
+          borderRadius={10}
         >
-          <View
-            style={{
-              flexDirection: "row",
-              justifyContent: "space-between",
-              alignItems: "flex-start",
-              margin: 10
+          <Pressable
+            onPress={() => {
+              this.setCardModalVisible(true);
+              this.setState({ amountCard: item.amount });
             }}
           >
-            <Text style={{ color: "white", fontSize: 15 }}>{item.type}</Text>
-            <Text style={{ color: "white", fontSize: 15 }}>SIIC</Text>
-          </View>
-          <View
-            style={{
-              flexDirection: "row",
-              justifyContent: "flex-start",
-              alignItems: "center",
-              height: "80%",
-              marginLeft: 10
-            }}
-          >
-            <Text style={{ color: "white", fontSize: 25, fontWeight: "bold" }}>
-              {item.amount} F CFA
-            </Text>
-          </View>
+            <View
+              style={{
+                flexDirection: "row",
+                justifyContent: "space-between",
+                alignItems: "flex-start",
+                margin: 10
+              }}
+            >
+              <Text style={{ color: "white", fontSize: 15 }}>{item.type}</Text>
+              <Text style={{ color: "white", fontSize: 15 }}>SIIC</Text>
+            </View>
+            <View
+              style={{
+                flexDirection: "row",
+                justifyContent: "flex-start",
+                alignItems: "center",
+                height: "80%",
+                marginLeft: 10,
+                borderRadius: 10
+              }}
+            >
+              <Text
+                style={{ color: "white", fontSize: 25, fontWeight: "bold" }}
+              >
+                {item.amount} F CFA
+              </Text>
+            </View>
+          </Pressable>
         </ImageBackground>
       </View>
     );
   };
 
-  modal1 = () => {
-    return (
-      <Modal
-        animationType="slide"
-        transparent={true}
-        visible={this.state.modalVisible1}
-        onRequestClose={() => {
-          Alert.alert("Modal has been closed.");
-          this.setModalVisible1(!this.state.modalVisible1);
-        }}
-      >
-        <View
-          style={{
-            height: "60%",
-            marginTop: "auto"
-          }}
-        >
-          <View
-            style={{
-              flex: 1,
-              backgroundColor: "white",
-              bottom: 0,
-              left: 0,
-              right: 0,
-              zIndex: 10,
-              borderTopRightRadius: 30,
-              borderTopLeftRadius: 30
-            }}
-          >
-            <View style={{ paddingLeft: 15 }}>
-              <View style={{ alignItems: "center", justifyContent: "center" }}>
-                <Image
-                  style={{
-                    marginTop: 20,
-                    marginRight: 10,
-                    width: 30,
-                    height: 30
-                  }}
-                  source={require("../../../../assets/images/AccountPage/bank-transfer.png")}
-                />
-                <Text style={{ fontSize: 10 }}>Bank Transfer</Text>
-              </View>
-
-              <View>
-                <Text>Account number</Text>
-                <View
-                  style={{
-                    width: 333,
-                    height: 56,
-                    backgroundColor: "#F2F2F2",
-                    borderRadius: 5,
-                    justifyContent: "center",
-                    flexDirection: "row",
-                    marginTop: 19
-                  }}
-                >
-                  <TextInput
-                    style={{
-                      flex: 1,
-                      paddingTop: 10,
-                      paddingRight: 10,
-                      paddingBottom: 10,
-                      paddingLeft: 0,
-                      backgroundColor: "#F2F2F2",
-                      color: "#424242",
-                      fontSize: 17
-                    }}
-                    placeholderTextColor="#000"
-                    keyboardType="numeric"
-                    onChangeText={() => {}}
-                  />
-                </View>
-              </View>
-
-              <View>
-                <Text>Amount</Text>
-                <View
-                  style={{
-                    width: 333,
-                    height: 56,
-                    backgroundColor: "#F2F2F2",
-                    borderRadius: 5,
-                    justifyContent: "center",
-                    flexDirection: "row",
-                    marginTop: 19
-                  }}
-                >
-                  <TextInput
-                    style={{
-                      flex: 1,
-                      paddingTop: 10,
-                      paddingRight: 10,
-                      paddingBottom: 10,
-                      paddingLeft: 0,
-                      backgroundColor: "#F2F2F2",
-                      color: "#424242",
-                      fontSize: 17
-                    }}
-                    placeholderTextColor="#000"
-                    keyboardType="numeric"
-                    onChangeText={() => {}}
-                  />
-                </View>
-              </View>
-              <TouchableOpacity
-                style={{
-                  width: 334,
-                  height: 50,
-                  justifyContent: "center",
-                  alignItems: "center",
-                  backgroundColor: "#E84E1C",
-                  borderRadius: 8,
-                  marginTop: 10
-                }}
-                onPress={() => {
-                  this.setModalVisible1(false);
-                }}
-              >
-                <Text
-                  style={{
-                    color: "#E5E5E5",
-                    fontSize: 20
-                  }}
-                >
-                  Validate
-                </Text>
-              </TouchableOpacity>
-            </View>
-          </View>
-        </View>
-        <Pressable
-          onPress={() => {
-            this.setModalVisible1(false);
-          }}
-          style={{
-            position: "absolute",
-            left: 0,
-            top: 0,
-            width: "100%",
-            height: "40%",
-            backgroundColor: "rgba(52, 52, 52, 0)"
-          }}
-        ></Pressable>
-      </Modal>
-    );
-  };
-
-  modal2 = () => {
-    return (
-      <Modal
-        animationType="slide"
-        transparent={true}
-        visible={this.state.modalVisible2}
-        onRequestClose={() => {
-          Alert.alert("Modal has been closed.");
-          this.setModalVisible2(!this.state.modalVisible2);
-        }}
-      >
-        <View
-          style={{
-            height: "60%",
-            marginTop: "auto"
-          }}
-        >
-          <View
-            style={{
-              flex: 1,
-              backgroundColor: "white",
-              bottom: 0,
-              left: 0,
-              right: 0,
-              zIndex: 10,
-              borderTopRightRadius: 30,
-              borderTopLeftRadius: 30
-            }}
-          >
-            <View style={{ paddingLeft: 15 }}>
-              <View style={{ alignItems: "center", justifyContent: "center" }}>
-                <Image
-                  style={{
-                    marginTop: 20,
-                    marginRight: 10,
-                    width: 30,
-                    height: 30
-                  }}
-                  source={require("../../../../assets/images/AccountPage/wallet.png")}
-                />
-                <Text style={{ fontSize: 10 }}>Ask Money</Text>
-              </View>
-
-              <View>
-                <Text>Phone number</Text>
-                <View
-                  style={{
-                    width: 333,
-                    height: 56,
-                    backgroundColor: "#F2F2F2",
-                    borderRadius: 5,
-                    justifyContent: "center",
-                    flexDirection: "row",
-                    marginTop: 19
-                  }}
-                >
-                  <TextInput
-                    style={{
-                      flex: 1,
-                      paddingTop: 10,
-                      paddingRight: 10,
-                      paddingBottom: 10,
-                      paddingLeft: 0,
-                      backgroundColor: "#F2F2F2",
-                      color: "#424242",
-                      fontSize: 17
-                    }}
-                    placeholderTextColor="#000"
-                    keyboardType="numeric"
-                    onChangeText={() => {}}
-                  />
-                </View>
-              </View>
-
-              <View>
-                <Text>Amount</Text>
-                <View
-                  style={{
-                    width: 333,
-                    height: 56,
-                    backgroundColor: "#F2F2F2",
-                    borderRadius: 5,
-                    justifyContent: "center",
-                    flexDirection: "row",
-                    marginTop: 19
-                  }}
-                >
-                  <TextInput
-                    style={{
-                      flex: 1,
-                      paddingTop: 10,
-                      paddingRight: 10,
-                      paddingBottom: 10,
-                      paddingLeft: 0,
-                      backgroundColor: "#F2F2F2",
-                      color: "#424242",
-                      fontSize: 17
-                    }}
-                    placeholderTextColor="#000"
-                    keyboardType="numeric"
-                    onChangeText={() => {}}
-                  />
-                </View>
-              </View>
-              <TouchableOpacity
-                style={{
-                  width: 334,
-                  height: 50,
-                  justifyContent: "center",
-                  alignItems: "center",
-                  backgroundColor: "#E84E1C",
-                  borderRadius: 8,
-                  marginTop: 10
-                }}
-                onPress={() => {
-                  this.setModalVisible2(false);
-                }}
-              >
-                <Text
-                  style={{
-                    color: "#E5E5E5",
-                    fontSize: 20
-                  }}
-                >
-                  Send request
-                </Text>
-              </TouchableOpacity>
-            </View>
-          </View>
-        </View>
-        <Pressable
-          onPress={() => {
-            this.setModalVisible2(false);
-          }}
-          style={{
-            position: "absolute",
-            left: 0,
-            top: 0,
-            width: "100%",
-            height: "40%",
-            backgroundColor: "rgba(52, 52, 52, 0)"
-          }}
-        ></Pressable>
-      </Modal>
-    );
-  };
-
-  modal3 = () => {
-    return (
-      <Modal
-        animationType="slide"
-        transparent={true}
-        visible={this.state.modalVisible3}
-        onRequestClose={() => {
-          Alert.alert("Modal has been closed.");
-          this.setModalVisible3(!this.state.modalVisible3);
-        }}
-      >
-        <View
-          style={{
-            height: "60%",
-            marginTop: "auto"
-          }}
-        >
-          <View
-            style={{
-              flex: 1,
-              backgroundColor: "white",
-              bottom: 0,
-              left: 0,
-              right: 0,
-              zIndex: 10,
-              borderTopRightRadius: 30,
-              borderTopLeftRadius: 30
-            }}
-          >
-            <View style={{ margin: 15 }}>
-              <View
-                style={{
-                  justifyContent: "center",
-                  alignItems: "center"
-                }}
-              >
-                <ImageBackground
-                  source={require("../../../../assets/images/AccountPage/Card1.png")}
-                  resizeMode="cover"
-                  borderRadius={10}
-                  style={{
-                    width: "100%",
-                    height: 200,
-                    borderRadius: 10
-                  }}
-                >
-                  <View
-                    style={{
-                      flexDirection: "row",
-                      justifyContent: "space-between",
-                      alignItems: "flex-start",
-                      margin: 10
-                    }}
-                  >
-                    <Text style={{ color: "white", fontSize: 15 }}>
-                      Current Account
-                    </Text>
-                    <Text style={{ color: "white", fontSize: 15 }}>SIIC</Text>
-                  </View>
-                  <View
-                    style={{
-                      flexDirection: "row",
-                      justifyContent: "flex-start",
-                      alignItems: "center",
-                      height: "50%",
-                      marginLeft: 10
-                    }}
-                  >
-                    <Text
-                      style={{
-                        color: "white",
-                        fontSize: 25,
-                        fontWeight: "bold"
-                      }}
-                    >
-                      **** **** **** 2118
-                    </Text>
-                  </View>
-                  <View
-                    style={{
-                      flexDirection: "row",
-                      justifyContent: "space-between"
-                    }}
-                  >
-                    <View style={{ flexDirection: "row" }}>
-                      <View style={{ marginLeft: 15 }}>
-                        <Text style={{ color: "white" }}>Exp date</Text>
-                        <Text style={{ color: "white" }}>12/25</Text>
-                      </View>
-                      <View style={{ marginLeft: 15 }}>
-                        <Text style={{ color: "white" }}>CVV</Text>
-                        <Text style={{ color: "white" }}>***</Text>
-                      </View>
-                    </View>
-                    <View>
-                      <Image
-                        style={{ marginTop: 15, marginRight: 10 }}
-                        source={require("../../../../assets/images/AccountPage/visa.png")}
-                      />
-                    </View>
-                  </View>
-                </ImageBackground>
-              </View>
-
-              <TouchableOpacity
-                style={{
-                  width: 334,
-                  height: 50,
-                  justifyContent: "center",
-                  alignItems: "center",
-                  backgroundColor: "#E84E1C",
-                  borderRadius: 8,
-                  marginTop: 10
-                }}
-                onPress={() => {
-                  this.setModalVisible3(false);
-                }}
-              >
-                <Text
-                  style={{
-                    color: "#E5E5E5",
-                    fontSize: 20
-                  }}
-                >
-                  Block the card
-                </Text>
-              </TouchableOpacity>
-            </View>
-          </View>
-        </View>
-        <Pressable
-          onPress={() => {
-            this.setModalVisible3(false);
-          }}
-          style={{
-            position: "absolute",
-            left: 0,
-            top: 0,
-            width: "100%",
-            height: "40%",
-            backgroundColor: "rgba(52, 52, 52, 0)"
-          }}
-        ></Pressable>
-      </Modal>
-    );
-  };
-
-  modal4 = () => {
+  modalNotification = () => {
     return (
       <Modal
         animationType="slide"
@@ -591,66 +169,66 @@ class Account extends Component {
           this.setModalVisible3(!this.state.modalVisible4);
         }}
       >
-        <View
-          style={{
-            height: "100%",
-            marginTop: "auto"
-          }}
-        >
+        <SafeAreaView>
           <View
             style={{
-              flex: 1,
-              backgroundColor: "#f6f7fb",
-              bottom: 0,
-              left: 0,
-              right: 0,
-              zIndex: 10,
-              borderTopRightRadius: 30,
-              borderTopLeftRadius: 30
+              height: "100%",
+              marginTop: "auto"
             }}
           >
             <View
               style={{
-                margin: 15,
-                flexDirection: "row",
-                backgroundColor: "#f6f7fb"
+                flex: 1,
+                backgroundColor: "#f6f7fb",
+                marginTop: 20,
+                borderTopRightRadius: 30,
+                borderTopLeftRadius: 30
               }}
             >
-              <TouchableOpacity
-                onPress={() => {
-                  this.setModalVisible4(false);
+              <View
+                style={{
+                  flexDirection: "row",
+                  justifyContent: "space-between",
+                  backgroundColor: "#f6f7fb"
+                }}
+              >
+                <TouchableOpacity
+                  style={{ marginLeft: 15 }}
+                  onPress={() => {
+                    this.setModalVisible4(false);
+                  }}
+                >
+                  <Image
+                    style={{ marginRight: 10 }}
+                    source={require("../../../../assets/images/SignUpPage/BackArrow.png")}
+                  />
+                </TouchableOpacity>
+                <Text
+                  style={{
+                    fontWeight: "bold",
+                    fontSize: 20
+                  }}
+                >
+                  Notification
+                </Text>
+                <Text style={{ color: "#f6f7fb" }}>Hey</Text>
+              </View>
+              <View
+                style={{
+                  height: "100%",
+                  justifyContent: "center",
+                  alignItems: "center"
                 }}
               >
                 <Image
-                  style={{ marginRight: 10 }}
-                  source={require("../../../../assets/images/SignUpPage/BackArrow.png")}
+                  style={{ height: 200 }}
+                  source={require("../../../../assets/images/galaxies.gif")}
                 />
-              </TouchableOpacity>
-              <Text
-                style={{
-                  marginLeft: "30%",
-                  fontWeight: "bold",
-                  fontSize: 20
-                }}
-              >
-                Notification
-              </Text>
-            </View>
-            <View
-              style={{
-                height: "100%",
-                justifyContent: "center",
-                alignItems: "center"
-              }}
-            >
-              <Image
-                style={{ height: 200 }}
-                source={require("../../../../assets/images/galaxies.gif")}
-              />
-              <Text>No new notification</Text>
+                <Text>No new notification</Text>
+              </View>
             </View>
           </View>
-        </View>
+        </SafeAreaView>
       </Modal>
     );
   };
@@ -659,14 +237,32 @@ class Account extends Component {
     return (
       <SafeAreaView style={{ backgroundColor: "#F6F7FB", height: "100%" }}>
         <ScrollView showsVerticalScrollIndicator={false}>
-          <this.modal1 />
-          <this.modal2 />
-          <this.modal3 />
-          <this.modal4 />
+          <BTransferModal
+            visible={this.state.modalVisible1}
+            closeVisibleState={() => this.setModalVisible1(false)}
+          />
+          <AskMoneyModal
+            visible={this.state.modalVisible2}
+            closeVisibleState={() => this.setModalVisible2(false)}
+          />
+          <BlockModal
+            visible={this.state.modalVisible3}
+            closeVisibleState={() => this.setModalVisible3(false)}
+          />
+
+          <CardModal
+            amount={this.state.amountCard}
+            visible={this.state.cardModalVisible}
+            closeVisibleState={() => this.setCardModalVisible(false)}
+          />
+          <this.modalNotification />
+
           <View
             style={{
               flexDirection: "row",
-              marginLeft: 10,
+              marginLeft: (width - 350) / 2,
+              marginRight: (width - 350) / 2,
+              marginTop: 15,
               justifyContent: "space-between",
               alignItems: "center"
             }}
@@ -679,18 +275,25 @@ class Account extends Component {
               }}
             >
               <Image
-                style={{ marginRight: 10 }}
+                style={{ marginRight: 10, height: 30, width: 30 }}
                 source={require("../../../../assets/images/AccountPage/bell.png")}
               />
             </TouchableOpacity>
           </View>
-          <View style={{ justifyContent: "center", alignItems: "center" }}>
+          <View
+            style={{
+              justifyContent: "center",
+              alignItems: "center",
+              borderRadius: 10
+            }}
+          >
             <Carousel
               data={images}
               renderItem={this._renderItem}
               sliderWidth={350}
               itemWidth={350}
               borderRadius={10}
+              marginTop={10}
             />
           </View>
           <View style={{ marginLeft: 20, marginTop: 10 }}>

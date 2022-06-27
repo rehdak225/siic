@@ -186,6 +186,7 @@ function HomeScreen({ navigation }) {
               >
                 <View style={{ paddingLeft: 15 }}>
                   <TouchableOpacity
+                    style={{ marginTop: 10 }}
                     onPress={() => {
                       setModalVisible(!modalVisible);
                     }}
@@ -209,7 +210,7 @@ function HomeScreen({ navigation }) {
                   <View
                     style={{
                       width: 333,
-                      height: 56,
+                      height: 50,
                       backgroundColor: "#F2F2F2",
                       borderRadius: 5,
                       justifyContent: "center",
@@ -218,16 +219,13 @@ function HomeScreen({ navigation }) {
                     }}
                   >
                     <Image
-                      style={{ marginTop: 15, marginRight: 10 }}
+                      style={{ marginTop: 15, marginLeft: 10 }}
                       source={require("../../assets/images/SignUpPage/Avatar.png")}
                     />
                     <TextInput
                       style={{
                         flex: 1,
-                        paddingTop: 10,
-                        paddingRight: 10,
-                        paddingBottom: 10,
-                        paddingLeft: 0,
+                        marginLeft: 10,
                         backgroundColor: "#F2F2F2",
                         color: "#424242",
                         fontSize: 17
@@ -412,16 +410,13 @@ function SignUpScreen({ navigation }) {
             }}
           >
             <Image
-              style={{ marginTop: 15, marginRight: 10 }}
+              style={{ marginTop: 15, marginLeft: 10 }}
               source={require("../../assets/images/SignUpPage/Avatar.png")}
             />
             <TextInput
               style={{
                 flex: 1,
-                paddingTop: 10,
-                paddingRight: 10,
-                paddingBottom: 10,
-                paddingLeft: 0,
+                marginLeft: 10,
                 backgroundColor: "#F2F2F2",
                 color: "#424242",
                 fontSize: 17
@@ -445,10 +440,7 @@ function SignUpScreen({ navigation }) {
               <TextInput
                 style={{
                   flex: 1,
-                  paddingTop: 10,
-                  paddingRight: 10,
-                  paddingBottom: 10,
-                  paddingLeft: 0,
+                  marginLeft: 10,
                   backgroundColor: "#F2F2F2",
                   color: "#424242",
                   fontSize: 17
@@ -477,10 +469,7 @@ function SignUpScreen({ navigation }) {
               <TextInput
                 style={{
                   flex: 1,
-                  paddingTop: 10,
-                  paddingRight: 10,
-                  paddingBottom: 10,
-                  paddingLeft: 0,
+                  marginLeft: 10,
                   backgroundColor: "#F2F2F2",
                   color: "#424242",
                   fontSize: 17
@@ -505,16 +494,13 @@ function SignUpScreen({ navigation }) {
             }}
           >
             <Image
-              style={{ marginTop: 15, marginRight: 10 }}
+              style={{ marginTop: 15, marginLeft: 10 }}
               source={require("../../assets/images/SignUpPage/Avatar.png")}
             />
             <TextInput
               style={{
                 flex: 1,
-                paddingTop: 10,
-                paddingRight: 10,
-                paddingBottom: 10,
-                paddingLeft: 0,
+                marginLeft: 10,
                 backgroundColor: "#F2F2F2",
                 color: "#424242",
                 fontSize: 17
@@ -536,16 +522,13 @@ function SignUpScreen({ navigation }) {
             }}
           >
             <Image
-              style={{ marginTop: 20, marginRight: 10 }}
+              style={{ marginTop: 20, marginLeft: 10 }}
               source={require("../../assets/images/SignUpPage/Globe.png")}
             />
             <TextInput
               style={{
                 flex: 1,
-                paddingTop: 10,
-                paddingRight: 10,
-                paddingBottom: 10,
-                paddingLeft: 0,
+                marginLeft: 10,
                 backgroundColor: "#F2F2F2",
                 color: "#424242",
                 fontSize: 17
@@ -567,16 +550,13 @@ function SignUpScreen({ navigation }) {
             }}
           >
             <Image
-              style={{ marginTop: 20, marginRight: 10 }}
+              style={{ marginTop: 20, marginLeft: 10 }}
               source={require("../../assets/images/SignUpPage/Address.png")}
             />
             <TextInput
               style={{
                 flex: 1,
-                paddingTop: 10,
-                paddingRight: 10,
-                paddingBottom: 10,
-                paddingLeft: 0,
+                marginLeft: 10,
                 backgroundColor: "#F2F2F2",
                 color: "#424242",
                 fontSize: 17
@@ -622,6 +602,7 @@ function VerificationScreen({ navigation }) {
       >
         <View style={{ paddingLeft: 15 }}>
           <TouchableOpacity
+            style={{ marginTop: 10 }}
             onPress={() => {
               navigation.navigate("SignUpScreen");
             }}
